@@ -54,5 +54,27 @@ namespace zajecia13
             }
             
         }
+        
+        public void WritePhonesBySurname(IEnumerable<Person> people)
+                {
+                    char currentLetter = 'A';
+                    string folder = "phone-number-surnames/";
+                    string fileName = "group-" + currentLetter;
+                    StreamWriter writer= new StreamWriter(folder + fileName, true);
+                    
+                    foreach (var person in people)
+                    {
+                        if (person.Surname[0] != currentLetter)
+                        {
+                            writer.Close();
+                            currentLetter = person.Surname[0];
+                            fileName = "group-" + currentLetter;
+                            writer = new StreamWriter(folder + fileName, true);
+                        }   
+                        
+                        writer.Write($"{person.Phone} \n");
+                    }
+                    
+                }
     }
 }

@@ -25,6 +25,7 @@ namespace zajecia13
             
             writer.WritePhoneNumberToFile(sortedPeople, "phones2.txt");
             writer.WritePhonesInGroupsOfTen(sortedPeople);
+            writer.WritePhonesBySurname(sortedPeople);
         }
     }
 }
